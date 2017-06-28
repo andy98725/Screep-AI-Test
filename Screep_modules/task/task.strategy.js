@@ -1,5 +1,5 @@
-var path = '../RCL/RCL';
-const RCL = [require(path + '0'), require(path + '1'), require(path + '2'), require(path + '3'), require(path + '4'), require(path + '5'), require(path + '6'), require(path + '7'), require(path + '8')];
+var path = 'RCL.RCL';
+const RCL = [require(path + '0.js'), require(path + '1.js'), require(path + '2.js'), require(path + '3.js'), require(path + '4.js'), require(path + '5.js'), require(path + '6.js'), require(path + '7.js'), require(path + '8.js')];
 
 class SpawnerManage {
     run() {
