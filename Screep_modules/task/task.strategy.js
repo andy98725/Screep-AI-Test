@@ -8,7 +8,7 @@ class MemoryManage {
             Memory.rooms = {};
         }
         //Set room data for owned rooms
-        _.forEach(Game.spawns, spawn => RCL[spawn.room.controller.level].run(spawn));
+        _.forEach(Game.spawns, spawn => RCL[spawn.room.controller.level].run(spawn.room.name));
     }
 }
 module.exports = new MemoryManage();
