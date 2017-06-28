@@ -15,4 +15,4 @@ class CreepManagement {
         });
     }
 }
-module.exports = new CreepManagement
+module.exports = new CreepManagement();
