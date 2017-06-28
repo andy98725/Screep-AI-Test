@@ -8,7 +8,7 @@ class SpawnerManage {
             Memory.rooms = {};
         }
         //Set room data for owned rooms
-        _.forEach(Game.spawns, spawn => RCL[spawn.room.controller.level].run(spawn.room));
+        _.forEach(Game.spawns, spawn => RCL[spawn.room.controller.level].run(spawn);
     }
 }
 module.exports = new SpawnerManage();

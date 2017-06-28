@@ -1,8 +1,8 @@
 // JavaScript source code
 class ManageSpawns{
     run() {
-        for (var name in Game.spawns) {
-            var spawn = Game.spawns[name];
+        for (var sp in Game.spawns) {
+            var spawn = Game.spawns[sp];
             this.spawnUnits(spawn);
             this.makeConstructions(spawn.room);
         }

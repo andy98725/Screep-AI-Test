@@ -1,6 +1,7 @@
 // JavaScript source code
 class RCLMemoryManage {
-    run(rm) {
+    run(spawn) {
+        var rm = spawn.room.name;
         Memory.rooms[rm].build.policy = {
             extension: 1,
             container: 0,
