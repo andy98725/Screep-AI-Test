@@ -1,6 +1,6 @@
 const roles = {
-    harvester: require('role.harvester.js'),
-    worker: require('role.worker.js'),
+    harvester: require('role.harvester'),
+    worker: require('role.worker'),
 };
 
 class CreepManagement {
