@@ -11,4 +11,4 @@ class SpawnerManage {
         _.forEach(Game.spawns, spawn => RCL[spawn.room.controller.level].run(spawn.room));
     }
 }
-module.export = new SpawnerManage();
+module.exports = new SpawnerManage();

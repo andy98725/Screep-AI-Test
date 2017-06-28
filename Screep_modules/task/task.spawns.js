@@ -21,4 +21,4 @@ class ManageSpawns{
 
     }
 }
-module.export = new ManageSpawns();
+module.exports = new ManageSpawns();
