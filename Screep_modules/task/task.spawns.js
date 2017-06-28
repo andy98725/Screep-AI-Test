@@ -2,7 +2,7 @@
 class ManageSpawns{
     run() {
         for (var name in Game.spawns) {
-            var spawn = Game.spawns[spawn];
+            var spawn = Game.spawns[name];
             this.spawnUnits(spawn);
             this.makeConstructions(spawn.room);
         }
