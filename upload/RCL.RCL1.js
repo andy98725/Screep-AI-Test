@@ -18,4 +18,4 @@ class RCLMemoryManage {
         };
     }
 }
-module.export = RCLMemoryManage();
+module.export = new RCLMemoryManage();
