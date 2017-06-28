@@ -12,7 +12,9 @@ class ManageSpawns{
         if(_(Game.creeps).size() < 
         _(_(Memory.rooms[spawn.room.name].spawn).map(function (element) { return element.chance })).reduce(
         function (a, b) { return a + b;})) {
-            console.log("It works");
+            console.log(_(Game.creeps).size());
+            console.log(_(_(Memory.rooms[spawn.room.name].spawn).map(function (element) { return element.chance })).reduce(
+        function (a, b) { return a + b;}));
         }
 
 
