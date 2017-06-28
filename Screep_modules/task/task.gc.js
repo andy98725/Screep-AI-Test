@@ -8,4 +8,4 @@ class GarbageCollection {
     }
 }
 
-module.exports = new GarbageCollection;
+module.exports = new GarbageCollection();
