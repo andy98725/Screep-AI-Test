@@ -9,6 +9,7 @@ class ManageSpawns{
     }
 
     spawnUnits(spawn) { //Spawns needed units
+        //If total creeps is under total amount needed
         if(_(Game.creeps).size() < 
         _(_(Memory.rooms[spawn.room.name].spawn).map(function (element) { return element.max })).reduce(
         function (a, b) { return a + b;})) {
