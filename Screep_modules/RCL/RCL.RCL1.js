@@ -7,14 +7,16 @@ class RCLMemoryManage {
         if(Memory.rooms[rm].build == null)
             Memory.rooms[rm].build = {}
         Memory.rooms[rm].build.policy = {
-            extension: 1,
-            container: 0,
+            extension: 0,
+            container: 1,
         }
         if(Memory.rooms[rm].spawn == null)
             Memory.rooms[rm].spawn = {}
         Memory.rooms[rm].spawn.worker = {
-            chance: 1,
             max: 10,
+            chance: 1,
+            role: 'worker',
+            body: [WORK,CARRY,MOVE,MOVE]
         }
         //Worker ratios
         if(Memory.rooms[rm].worker == null)
