@@ -18,7 +18,7 @@ class ManageSpawns{
                 while(this.calculateBodyCost(body) > spawn.room.energyCapacityAvailable){
                     body.pop();
                 }
-                if(spawn.canCreateCreep(body)){
+                if(spawn.canCreateCreep(body) == OK){
                     var creep = spawn.createCreep(body);
                     Memory.creeps[creep].role = Memory.rooms[spawn.room.name].spawn[job].role;
                 }
