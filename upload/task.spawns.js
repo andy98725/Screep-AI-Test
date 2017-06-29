@@ -12,10 +12,10 @@ class ManageSpawns{
         if(_(Game.creeps).size() < 
         _.sum(_.map(Memory.rooms[spawn.room.name].spawn, element => element.max)) ){
             //Missing creeps. Choose randomly until a valid is found
-            var job = chooseType(Memory.rooms[spawn.room.name].spawn);
+            var job = this.chooseType(Memory.rooms[spawn.room.name].spawn);
             if(job != -1){//Spawn creep
                 var body = Memory.rooms[spawn.room.name].spawn[job].body;
-                while(calculateBodyCost(body) > spawn.room.energyCapacityAvailable){
+                while(this.calculateBodyCost(body) > spawn.room.energyCapacityAvailable){
                     body.pop();
                 }
                 if(spawn.canCreateCreep(body)){
