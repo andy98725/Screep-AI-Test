@@ -2,7 +2,7 @@
 class Strategy {
     run() {
         //Make construction sites
-        _.foreach(Memory.rooms, rm => constructCheck(rm));
+        _.forEach(Memory.rooms, rm => constructCheck(rm));
 
     }
 
