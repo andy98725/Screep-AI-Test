@@ -182,7 +182,7 @@ class Worker {
                 this.nextJob(creep);
             }
             else if (creep.build(construction) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(construction, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.moveTo(construction, {visualizePathStyle: {stroke: '#ff8800'}});
             } 
             else if (construction.progress >= construction.progressTotal) {
                 // Target has been constructed
@@ -198,7 +198,7 @@ class Worker {
         if (creep.carry.energy > 0) {
             var target = Game.getObjectById(creep.memory.target);
             if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.moveTo(target, {visualizePathStyle: {stroke: '#00ff00'}});
             }
             else if (target.energy >= target.energyCapacity) {
                 // Target is fully charged
@@ -213,7 +213,7 @@ class Worker {
     doUpgradeControllerJob(creep) {
         if (creep.carry.energy > 0) {
             if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffff00'}});
             }
         }
         else {
@@ -225,7 +225,7 @@ class Worker {
         if (creep.carry.energy > 0) {
             var target = Game.getObjectById(creep.memory.target);
             if (creep.repair(target) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.moveTo(target, {visualizePathStyle: {stroke: '#ff00ff'}});
             }
             else if (target.hits >= target.hitsMax) {
                 // Target is fully repaied
@@ -242,7 +242,7 @@ class Worker {
         if (creep.carry.energy > 0) {
             var target = Game.getObjectById(creep.memory.target);
             if (creep.repair(target) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.moveTo(target, {visualizePathStyle: {stroke: '#0000ff'}});
             }
             else if (target.hits >= Memory.rooms[creep.room.name].build.policy.WallHP) {
                 // Target is fortified
