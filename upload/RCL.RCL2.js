@@ -16,7 +16,7 @@ class RCLMemoryManage {
             max: 20,
             chance: 1,
             role: 'worker',
-            body: [WORK,CARRY,MOVE,MOVE,CARRY,MOVE,WORK,MOVE,CARRY,MOVE,WORK,MOVE]
+            body: [WORK,CARRY,MOVE,MOVE,MOVE,CARRY,MOVE,WORK,MOVE,CARRY,MOVE,WORK]
         }
         //Worker ratios
         if(Memory.rooms[rm].worker == null)
