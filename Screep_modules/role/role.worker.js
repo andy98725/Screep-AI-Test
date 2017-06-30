@@ -256,7 +256,7 @@ class Worker {
     }
 
     findColoredFlags(primary,secondary){
-        return Gamepad.flags.filter(function(fl){
+        return Game.flags.filter(function(fl){
             return(fl.color == primary && fl.secondaryColor == secondary);
         });
     }
