@@ -24,7 +24,7 @@ class RCLMemoryManage {
             Memory.rooms[rm].worker = {}
         Memory.rooms[rm].worker.policy = {
             construct: 0.2,
-            upgrade: 0.5,
+            upgrade: 0.2,
             transfer: 0.2,
             repair: 0.1,
             fortify: 0,

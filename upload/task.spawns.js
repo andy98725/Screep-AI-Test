@@ -54,21 +54,21 @@ class ManageSpawns{
     }
 
     calculateBodyCost(body){
-        var buildcost = 0;
+        var buildCost = 0;
         for(var bodypart in body){
-            switch(bodypart){
+            switch(body[bodypart]){
                 case "MOVE":
                 case "CARRY":
                 buildCost+=50;
                 break;
                 case "WORK":
-                buildCost+=20;
+                buildCost+=100;
                 break;
                 case "HEAL":
                 buildCost+=200;
                 break;
                 case "TOUGH":
-                buildCost+=20;
+                buildCost+=10;
                 break;
                 case "ATTACK":
                 buildCost+=80;
@@ -78,7 +78,7 @@ class ManageSpawns{
                 break;
             }
         }
-        return buildcost;
+        return buildCost;
     }
 }
 module.exports = new ManageSpawns();
