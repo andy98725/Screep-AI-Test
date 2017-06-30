@@ -6,7 +6,7 @@ class MemoryManage {
         //Clear garbage creep data
         for (var creep in Memory.creeps) {
             if (!Game.creeps[creep])
-                delete Memory.creep[creep];
+                delete Memory.creeps[creep];
         }
         //Initialize room data
         if (Memory.rooms == null) {

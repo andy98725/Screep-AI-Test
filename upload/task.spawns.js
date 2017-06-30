@@ -57,23 +57,23 @@ class ManageSpawns{
         var buildCost = 0;
         for(var bodypart in body){
             switch(body[bodypart]){
-                case "MOVE":
-                case "CARRY":
+                case MOVE:
+                case CARR":
                 buildCost+=50;
                 break;
-                case "WORK":
+                case WORK:
                 buildCost+=100;
                 break;
-                case "HEAL":
+                case HEAL:
                 buildCost+=200;
                 break;
-                case "TOUGH":
+                case TOUGH:
                 buildCost+=10;
                 break;
-                case "ATTACK":
+                case ATTACK:
                 buildCost+=80;
                 break;
-                case "RANGED_ATTACK":
+                case RANGED_ATTACK:
                 buildCost+=150;
                 break;
             }
