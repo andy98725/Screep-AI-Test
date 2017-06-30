@@ -145,6 +145,7 @@ class Worker {
             else {
                 // Find closest energy container or source
                 var target = Game.getObjectById(creep.memory.target);
+                if (!target) this.needMoreEnergy(creep);
                 if (target instanceof StructureContainer) {
                     // Withdraw energy from Container
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
