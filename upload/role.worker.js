@@ -119,11 +119,14 @@ class Worker {
                 });
                 if (!structure)
                     structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-                        filter: (s) => s.hits < Memory.rooms[creep.room.name].build.policy.WallHP && s.structureType == STRUCTURE_WALL
+                        filter: (s) => s.hits < Memory.rooms[creep.room.name].build.policy.WallHP && s.structureType == STRUCTURE_RAMPART
                     });
                 if(structure){
                     creep.memory.job = 'fortify';
                     creep.memory.target = structure.id;
+                }
+                else{
+                    hasFortificationJobs = false;
                 }
             }
         }
@@ -241,12 +244,12 @@ class Worker {
     doFortifyJob(creep){
         if (creep.carry.energy > 0) {
             var target = Game.getObjectById(creep.memory.target);
-            if (creep.repair(target) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(target, {visualizePathStyle: {stroke: '#0000ff'}});
-            }
-            else if (target.hits >= Memory.rooms[creep.room.name].build.policy.WallHP) {
+            if (target.hits >= Memory.rooms[creep.room.name].build.policy.WallHP) {
                 // Target is fortified
                 this.nextJob(creep);
+            }
+            else if (creep.repair(target) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(target, {visualizePathStyle: {stroke: '#0000ff'}});
             }
         }
         else {
