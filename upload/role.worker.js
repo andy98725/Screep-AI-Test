@@ -31,13 +31,13 @@ class Worker {
     needMoreEnergy(creep) {
         var flags = this.findColoredFlags(COLOR_YELLOW,COLOR_YELLOW);
         //find least used, then nearest
-        var counter = {};
+        var counter = [];
         for(var i = 0; i < flags.size(); i++){ counter[i] = 0;}
         //Count em
-        Game.creeps.forEach(cr => {if(cr.memory.job == 'energize') counter[cr.memory.target]++});
+        _(Game.creeps).forEach(cr => {if(cr.memory.job == 'energize') counter[cr.memory.target]++});
         //Now sort
         var targ = creep.pos.findClosestByPath(flags.filter(function(ele,index){
-            return counter[index] == Math.min.apply(Math, counter);
+            return counter[flags.indexOf(ele)] == Math.min.apply(Math, counter);
         }));
         if(targ)
             creep.memory.target = flags.indexOf(targ);
@@ -256,7 +256,7 @@ class Worker {
     }
 
     findColoredFlags(primary,secondary){
-        return Game.flags.filter(function(fl){
+        return _(Game.flags).filter(function(fl){
             return(fl.color == primary && fl.secondaryColor == secondary);
         });
     }
