@@ -9,6 +9,7 @@ class RCLMemoryManage {
         Memory.rooms[rm].build.policy = {
             extension: 5,
             container: 2,
+            WallHP: 100,
         }
         if(Memory.rooms[rm].spawn == null)
             Memory.rooms[rm].spawn = {}
@@ -24,8 +25,9 @@ class RCLMemoryManage {
         Memory.rooms[rm].worker.policy = {
             construct: 0.5,
             upgrade: 0.2,
-            harvest: 0.2,
+            transfer: 0.2,
             repair: 0.1,
+            fortify: 0.1,
         };
     }
 }
