@@ -15,7 +15,7 @@ class ManageSpawns{
             var job = this.chooseType(Memory.rooms[spawn.room.name].spawn);
             if(job != -1){//Spawn creep
                 var body = Memory.rooms[spawn.room.name].spawn[job].body;
-                while(this.calculateBodyCost(body) > spawn.room.energyCapacityAvailable){
+                while(this.calculateBodyCost(body) > spawn.room.energyAvailable && this.calculateBodyCost(body) > spawn.energyCapacity){
                     body.pop();
                 }
                 if(spawn.canCreateCreep(body) == OK){
