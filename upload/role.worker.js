@@ -166,6 +166,7 @@ class Worker {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
                     }
                 }
+                else this.needMoreEnergy(creep);
             }
         }
         else {
