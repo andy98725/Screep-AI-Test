@@ -29,6 +29,20 @@ class Worker {
     }
 
     needMoreEnergy(creep) {
+        var flags = findColoredFlags(COLOR_YELLOW,COLOR_YELLOW);
+        //find least used, then nearest
+        var counter = {};
+        for(var i = 0; i < flags.size(); i++){ counter[i] = 0;}
+        //Count em
+        Game.creeps.forEach(cr => {if(cr.memory.job == 'energize') counter[cr.memory.target]++});
+        //Now sort
+        var targ = creep.pos.findClosestByPath(flags.filter(function(ele,index){
+            return counter[index] == Math.min.apply(Math, counter);
+        }));
+        if(targ)
+            creep.memory.target = flags.indexOf(targ);
+        else   
+            creep.memory.target = 0;
         creep.memory.job = 'energize';
         //console.log(creep.name + '\'s job: ' + creep.memory.job);
     }
@@ -118,7 +132,14 @@ class Worker {
             if (energy) {
                 // Found dropped energy nearby. Pick it up
                 if (creep.pickup(energy) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(energy);
+                    //Move to targeted flag
+                    var fl = findColoredFlags(COLOR_YELLOW,COLOR_YELLOW)[target];
+                    if(fl)
+                        creep.moveTo(fl);
+                    else{
+                        console.log("No yellow harvester flags present");
+                        this.needMoreEnergy(creep);
+                    }
                 }
             }
             else {
@@ -232,6 +253,12 @@ class Worker {
         var sources = creep.room.find(FIND_SOURCES);
         var targets = containers.concat(sources);
         return targets.length == 1 ? targets[0] : creep.pos.findClosestByPath(targets);
+    }
+
+    findColoredFlags(primary,secondary){
+        return Gamepad.flags.filter(function(fl){
+            return(fl.color == primary && fl.secondaryColor == secondary);
+        });
     }
 
 }
