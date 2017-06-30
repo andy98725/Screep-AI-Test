@@ -8,7 +8,6 @@ class RCLMemoryManage {
             Memory.rooms[rm].build = {}
         Memory.rooms[rm].build.policy = {
             extension: 5,
-            container: 2,
             WallHP: 100,
         }
         if(Memory.rooms[rm].spawn == null)
