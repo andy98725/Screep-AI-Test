@@ -29,7 +29,7 @@ class Worker {
     }
 
     needMoreEnergy(creep) {
-        var flags = findColoredFlags(COLOR_YELLOW,COLOR_YELLOW);
+        var flags = this.findColoredFlags(COLOR_YELLOW,COLOR_YELLOW);
         //find least used, then nearest
         var counter = {};
         for(var i = 0; i < flags.size(); i++){ counter[i] = 0;}
@@ -133,7 +133,7 @@ class Worker {
                 // Found dropped energy nearby. Pick it up
                 if (creep.pickup(energy) == ERR_NOT_IN_RANGE) {
                     //Move to targeted flag
-                    var fl = findColoredFlags(COLOR_YELLOW,COLOR_YELLOW)[target];
+                    var fl = this.findColoredFlags(COLOR_YELLOW,COLOR_YELLOW)[target];
                     if(fl)
                         creep.moveTo(fl);
                     else{
