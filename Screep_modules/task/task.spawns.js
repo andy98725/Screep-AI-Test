@@ -58,7 +58,7 @@ class ManageSpawns{
         for(var bodypart in body){
             switch(body[bodypart]){
                 case MOVE:
-                case CARR":
+                case CARRY:
                 buildCost+=50;
                 break;
                 case WORK:
