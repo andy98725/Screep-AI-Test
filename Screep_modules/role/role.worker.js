@@ -29,6 +29,7 @@ class Worker {
     }
 
     needMoreEnergy(creep) {
+        /*
         var flags = this.findColoredFlags(COLOR_YELLOW,COLOR_YELLOW);
         //find least used, then nearest
         var counter = [];
@@ -36,14 +37,20 @@ class Worker {
         //Count em
         _(Game.creeps).forEach(cr => {if(cr.memory.job == 'energize') counter[cr.memory.target]++});
         //Now sort
-        var targ = creep.pos.findClosestByPath(flags.filter(function(ele,index){
+        flags = flags.filter(function(ele){
             return counter[flags.indexOf(ele)] == Math.min.apply(Math, counter);
+        });
+        
+        var targ = creep.pos.findClosestByPath(flags.map(function(ele){
+            return Game.flags[ele];
         }));
         if(targ)
             creep.memory.target = flags.indexOf(targ);
         else   
             creep.memory.target = 0;
+        creep.memory.job = 'energize';*/
         creep.memory.job = 'energize';
+        creep.memory.target = this.findClosestContainerOrSource(creep).id;
         //console.log(creep.name + '\'s job: ' + creep.memory.job);
     }
 
@@ -132,19 +139,12 @@ class Worker {
             if (energy) {
                 // Found dropped energy nearby. Pick it up
                 if (creep.pickup(energy) == ERR_NOT_IN_RANGE) {
-                    //Move to targeted flag
-                    var fl = this.findColoredFlags(COLOR_YELLOW,COLOR_YELLOW)[target];
-                    if(fl)
-                        creep.moveTo(fl);
-                    else{
-                        console.log("No yellow harvester flags present");
-                        this.needMoreEnergy(creep);
-                    }
+                    creep.moveTo(energy);
                 }
             }
             else {
                 // Find closest energy container or source
-                var target = this.findClosestContainerOrSource(creep);
+                var target = Game.getObjectByID(creep.memory.target);
                 if (target instanceof StructureContainer) {
                     // Withdraw energy from Container
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
