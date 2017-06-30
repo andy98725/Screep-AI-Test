@@ -50,7 +50,15 @@ class Worker {
             creep.memory.target = 0;
         creep.memory.job = 'energize';*/
         creep.memory.job = 'energize';
-        creep.memory.target = this.findClosestContainerOrSource(creep).id;
+        var target = this.findClosestContainerOrSource(creep);
+        if (target == null)
+            target = creep.pos.findClosestByRange(creep.room.find(FIND_SOURCES));
+        if (target != null)
+        creep.memory.target = target.id;
+        else{
+            creep.memory.target = 0;
+            console.log("Issue: Cannot find valid energy source");
+        }
         //console.log(creep.name + '\'s job: ' + creep.memory.job);
     }
 
