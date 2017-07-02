@@ -13,10 +13,10 @@ class RCLMemoryManage {
         if(Memory.rooms[rm].spawn == null)
             Memory.rooms[rm].spawn = {}
         Memory.rooms[rm].spawn.worker = {
-            max: 10,
+            max: 5,
             chance: 1,
             role: 'worker',
-            body: [WORK,CARRY,MOVE,MOVE]
+            body: [MOVE,WORK,CARRY,MOVE]
         }
         //Worker ratios
         if(Memory.rooms[rm].worker == null)

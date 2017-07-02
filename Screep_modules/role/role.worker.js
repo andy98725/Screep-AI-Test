@@ -269,9 +269,18 @@ class Worker {
     }
 
     findColoredFlags(primary,secondary){
+        //Set up a map on this later
+        /*
         return _(Game.flags).filter(function(fl){
             return(fl.color == primary && fl.secondaryColor == secondary);
-        });
+        });*/
+        var ret = [];
+        for (var check in Game.flags){
+            var fl = Game.flags[check];
+            if (fl.color == primary && fl.secondaryColor == secondary){
+                ret.push(fl);
+            }
+        }
     }
 
 }
