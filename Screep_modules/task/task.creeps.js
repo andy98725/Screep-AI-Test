@@ -1,5 +1,4 @@
 const roles = {
-    harvester: require('role.harvester'),
     worker: require('role.worker'),
 };
 
